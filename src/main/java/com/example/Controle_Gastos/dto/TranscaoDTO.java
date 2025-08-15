@@ -16,7 +16,7 @@ public class TranscaoDTO {
 
     private String descricao;
 
-    @NotNull
+    @NotNull(message = "O valor da transação não pode ser nulo")
     @Positive
     private Double valor;
 

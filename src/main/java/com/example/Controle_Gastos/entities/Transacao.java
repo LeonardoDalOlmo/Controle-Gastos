@@ -25,6 +25,10 @@ public class Transacao {
 
     private LocalDate data;
 
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
     public Transacao() {
     }
 
@@ -83,5 +87,9 @@ public class Transacao {
 
     public void setData(LocalDate data) {
         this.data = data;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
     }
 }
