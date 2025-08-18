@@ -13,7 +13,7 @@ public class Transacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String nome;
 
@@ -32,7 +32,7 @@ public class Transacao {
     public Transacao() {
     }
 
-    public Transacao(Long id, String nome, String descricao, Double valor, TipoTransacao tipoTransacao, LocalDate data) {
+    public Transacao(Integer id, String nome, String descricao, Double valor, TipoTransacao tipoTransacao, LocalDate data) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -41,11 +41,11 @@ public class Transacao {
         this.data = data;
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -13,7 +13,7 @@ public class UsuarioDTO {
     @NotNull(message = "O nome do usuário não pode ser nulo")
     private String nome;
 
-    private List<TranscaoDTO> transcacoes = new ArrayList<>();
+    private List<TransacaoDTO> transcacoes = new ArrayList<>();
 
     public UsuarioDTO(Long id, String nome) {
         this.id = id;
@@ -33,7 +33,7 @@ public class UsuarioDTO {
         return nome;
     }
 
-    public List<TranscaoDTO> getTranscacoes() {
+    public List<TransacaoDTO> getTranscacoes() {
         return transcacoes;
     }
 }

@@ -3,13 +3,14 @@ package com.example.Controle_Gastos.dto;
 import com.example.Controle_Gastos.entities.Transacao;
 import com.example.Controle_Gastos.enums.TipoTransacao;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.PastOrPresent;
 import jakarta.validation.constraints.Positive;
 
 import java.time.LocalDate;
 
-public class TranscaoDTO {
+public class TransacaoDTO {
 
-    private Long id;
+    private Integer id;
 
     @NotNull(message = "O nome da transação não pode ser nulo")
     private String nome;
@@ -22,9 +23,10 @@ public class TranscaoDTO {
 
     private TipoTransacao tipoTransacao;
 
+    @PastOrPresent
     private LocalDate data;
 
-    public TranscaoDTO(Long id, String nome, String descricao, Double valor, TipoTransacao tipoTransacao, LocalDate data) {
+    public TransacaoDTO(Integer id, String nome, String descricao, Double valor, TipoTransacao tipoTransacao, LocalDate data) {
         this.id = id;
         this.nome = nome;
         this.descricao = descricao;
@@ -33,7 +35,7 @@ public class TranscaoDTO {
         this.data = data;
     }
 
-    public TranscaoDTO(Transacao entity) {
+    public TransacaoDTO(Transacao entity) {
         this.id = entity.getId();
         this.nome = entity.getNome();
         this.descricao = entity.getDescricao();
@@ -42,7 +44,7 @@ public class TranscaoDTO {
         this.data = entity.getData();
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 
