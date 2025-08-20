@@ -8,14 +8,14 @@ import java.util.List;
 
 public class UsuarioDTO {
 
-    private Long id;
+    private Integer id;
 
     @NotNull(message = "O nome do usuário não pode ser nulo")
     private String nome;
 
     private List<TransacaoDTO> transcacoes = new ArrayList<>();
 
-    public UsuarioDTO(Long id, String nome) {
+    public UsuarioDTO(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
     }
@@ -25,7 +25,7 @@ public class UsuarioDTO {
         this.nome = entity.getNome();
     }
 
-    public Long getId() {
+    public Integer getId() {
         return id;
     }
 

@@ -1,5 +1,6 @@
 package com.example.Controle_Gastos.entities;
 
+import com.example.Controle_Gastos.dto.TransacaoDTO;
 import jakarta.persistence.*;
 
 import java.util.ArrayList;
@@ -24,6 +25,14 @@ public class Usuario {
     public Usuario(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
+    }
+
+    public void addTransacao(Transacao transacao){
+        transacoes.add(transacao);
+    }
+
+    public void removeTransacao(Transacao transacao){
+        transacoes.remove(transacao);
     }
 
     public Integer getId() {

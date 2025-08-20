@@ -57,7 +57,7 @@ public class TransacaoService {
         }
     }
 
-    private void copyDtoToEntity(TransacaoDTO transacaoDTO, Transacao entity) {
+    private static void copyDtoToEntity(TransacaoDTO transacaoDTO, Transacao entity) {
         entity.setNome(transacaoDTO.getNome());
         entity.setDescricao(transacaoDTO.getDescricao());
         entity.setValor(transacaoDTO.getValor());
