@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class TransacaoService {
@@ -30,6 +30,32 @@ public class TransacaoService {
         return transacoes.stream().map(x -> new TransacaoDTO(x)).toList();
     }
 
+    public TransacaoDTO inserirTransacao(TransacaoDTO transacaoDTO) {
+        Transacao entity = new Transacao();
+        copyDtoToEntity(transacaoDTO, entity);
+        transacaoRepository.save(entity);
+        return new TransacaoDTO(entity);
+    }
+
+    public TransacaoDTO atualizarTransacao(Integer id, TransacaoDTO dto) {
+        try{
+            Transacao transacao = transacaoRepository.getReferenceById(dto.getId());
+            copyDtoToEntity(dto, transacao);
+            transacao = transacaoRepository.save(transacao);
+            return new TransacaoDTO(transacao);
+        }
+        catch (ResourceNotFoundException e) {
+            throw new ResourceNotFoundException("Transação não encontrada");
+        }
+    }
+
+    public void deletarTransacao(Integer id) {
+        try {
+            transacaoRepository.deleteById(id);
+        } catch (ResourceNotFoundException e) {
+            throw new ResourceNotFoundException("Transação não encontrada");
+        }
+    }
 
     private void copyDtoToEntity(TransacaoDTO transacaoDTO, Transacao entity) {
         entity.setNome(transacaoDTO.getNome());
